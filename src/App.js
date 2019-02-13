@@ -30,10 +30,21 @@ export default class App extends React.Component {
     });
   };
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  addTask = event => {
+    event.preventDefault();
+    this.setState({
+      taskList: [
+        ...this.state.taskList,
+        {
+          id: `task${Date.now()}`,
+          subject: this.state.newTaskInput,
+          completed: false
+        }
+      ],
+      newTaskInput: ""
+    });
+  };
+
   render() {
     return (
       <div>
