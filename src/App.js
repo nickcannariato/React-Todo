@@ -68,10 +68,17 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TaskList
+          taskList={this.state.taskList}
+          completeTask={this.completeTask}
+        />
+        <TaskForm
+          newTaskInput={this.state.newTaskInput}
+          handler={this.getTaskSubject}
+          addTask={this.addTask}
+          onClear={this.clearCompletedTasks}
+        />
       </div>
     );
   }
 }
-
-export default App;
