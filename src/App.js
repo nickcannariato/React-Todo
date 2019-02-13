@@ -58,6 +58,13 @@ export default class App extends React.Component {
     this.setState({ tasks });
   };
 
+  clearCompletedTasks = e => {
+    e.preventDefault();
+    let taskList = this.state.taskList.slice();
+    taskList = taskList.filter(task => !task.complete);
+    this.setState({ taskList });
+  };
+
   render() {
     return (
       <div>
