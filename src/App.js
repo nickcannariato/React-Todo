@@ -2,6 +2,19 @@ import React from "react";
 import TaskList from "./components/TodoComponents/TaskList";
 import TaskForm from "./components/TodoComponents/TaskForm";
 
+const tasks = [
+  {
+    id: "task1550090520702",
+    subject: "Pick Jay up from School",
+    complete: false
+  },
+  {
+    id: "task1550090526089",
+    subject: "Buy groceries",
+    complete: true
+  }
+];
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
