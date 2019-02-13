@@ -45,6 +45,19 @@ export default class App extends React.Component {
     });
   };
 
+  completeTask = id => {
+    const taskList = this.state.taskList.slice();
+    const tasks = taskList.map(task => {
+      if (task.id === id) {
+        task.completed = !task.completed;
+        return task;
+      } else {
+        return task;
+      }
+    });
+    this.setState({ tasks });
+  };
+
   render() {
     return (
       <div>
