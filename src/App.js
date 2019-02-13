@@ -24,6 +24,11 @@ export default class App extends React.Component {
     };
   }
 
+  getTaskSubject = event => {
+    this.setState({
+      newTaskInput: event.target.value
+    });
+  };
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
