@@ -15,6 +15,15 @@ const tasks = [
   }
 ];
 
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      taskList: tasks,
+      newTaskInput: ""
+    };
+  }
+
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
