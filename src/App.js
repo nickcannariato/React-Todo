@@ -4,12 +4,12 @@ import TaskForm from "./components/TodoComponents/TaskForm";
 
 const tasks = [
   {
-    id: "task1550090520702",
+    id: "task-1550090520702",
     subject: "Pick Jay up from School",
     complete: false
   },
   {
-    id: "task1550090526089",
+    id: "task-1550090526089",
     subject: "Buy groceries",
     complete: true
   }
@@ -36,9 +36,9 @@ export default class App extends React.Component {
       taskList: [
         ...this.state.taskList,
         {
-          id: `task${Date.now()}`,
+          id: `task-${Date.now()}`,
           subject: this.state.newTaskInput,
-          completed: false
+          complete: false
         }
       ],
       newTaskInput: ""
@@ -46,16 +46,16 @@ export default class App extends React.Component {
   };
 
   completeTask = id => {
-    const taskList = this.state.taskList.slice();
-    const tasks = taskList.map(task => {
+    let taskList = this.state.taskList.slice();
+    taskList = taskList.map(task => {
       if (task.id === id) {
-        task.completed = !task.completed;
+        task.complete = !task.complete;
         return task;
       } else {
         return task;
       }
     });
-    this.setState({ tasks });
+    this.setState({ taskList });
   };
 
   clearCompletedTasks = e => {
