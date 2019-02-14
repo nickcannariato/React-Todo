@@ -46,6 +46,9 @@ export default class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
+    if (event.keyCode && event.keyCode !== 13) {
+      return
+    } else { 
     this.setState({
       taskList: [
         ...this.state.taskList,
@@ -57,6 +60,7 @@ export default class App extends React.Component {
       ],
       newTaskInput: ""
     });
+  }
   };
 
   completeTask = id => {
@@ -91,16 +95,16 @@ export default class App extends React.Component {
               <Typography color="inherit">Tskr</Typography>
             </Toolbar>
           </AppBar>
-        <TaskList
-          taskList={this.state.taskList}
-          completeTask={this.completeTask}
-        />
-        <TaskForm
-          newTaskInput={this.state.newTaskInput}
+          <TaskList
+            taskList={this.state.taskList}
+            completeTask={this.completeTask}
+          />
+          <TaskForm
+            newTaskInput={this.state.newTaskInput}
             getTaskSubject={this.getTaskSubject}
-          addTask={this.addTask}
-          onClear={this.clearCompletedTasks}
-        />
+            addTask={this.addTask}
+            onClear={this.clearCompletedTasks}
+          />
         </Paper>
       </MuiThemeProvider>
     );
