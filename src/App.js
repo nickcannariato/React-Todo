@@ -92,7 +92,7 @@ export default class App extends React.Component {
         >
           <AppBar color="primary" position="static" style={{ height: 64 }}>
             <Toolbar style={{ height: 64 }}>
-              <Typography color="inherit">Tskr</Typography>
+              <Typography color="inherit">Taskr</Typography>
             </Toolbar>
           </AppBar>
           <TaskList
