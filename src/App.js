@@ -1,4 +1,7 @@
 import React from "react";
+import { AppBar, Toolbar, Typography, Paper } from "@material-ui/core";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+
 import TaskList from "./components/TodoComponents/TaskList";
 import TaskForm from "./components/TodoComponents/TaskForm";
 
@@ -14,6 +17,17 @@ const tasks = [
     complete: true
   }
 ];
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#a6172d"
+    },
+    secondary: {
+      main: "#181842",
+    }
+  }
+});
 
 export default class App extends React.Component {
   constructor() {
@@ -67,18 +81,28 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <MuiThemeProvider theme={theme}>
+        <Paper
+          elevation={0}
+          style={{ padding: 0, margin: 0, backgroundColor: "#f4f5f9" }}
+        >
+          <AppBar color="primary" position="static" style={{ height: 64 }}>
+            <Toolbar style={{ height: 64 }}>
+              <Typography color="inherit">Tskr</Typography>
+            </Toolbar>
+          </AppBar>
         <TaskList
           taskList={this.state.taskList}
           completeTask={this.completeTask}
         />
         <TaskForm
           newTaskInput={this.state.newTaskInput}
-          handler={this.getTaskSubject}
+            getTaskSubject={this.getTaskSubject}
           addTask={this.addTask}
           onClear={this.clearCompletedTasks}
         />
-      </div>
+        </Paper>
+      </MuiThemeProvider>
     );
   }
 }
